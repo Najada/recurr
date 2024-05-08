@@ -118,8 +118,7 @@ class DateUtil
         $start = clone $dt;
         $start = $start->setDate($start->format('Y'), 1, 1);
 
-        $diff  = $dt->diff($start);
-        $start = $diff->days;
+        $start  = (int)abs($dt->diffInDays($start));
 
         $set = array();
         for ($i = $start, $k = 0; $k < 7; $k++) {
